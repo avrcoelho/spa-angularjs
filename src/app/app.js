@@ -1,6 +1,6 @@
 import angular from "angular";
-import ngRoute from "angular-route";
+import "angular-route";
 
-const app = angular.module("mainApp", [ngRoute]);
+const app = angular.module("mainApp", ["ngRoute"]);
 
 export default app;
