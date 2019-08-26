@@ -1,1 +1,1 @@
-import "./controllers/appController";
+import "./controllers/homeController";

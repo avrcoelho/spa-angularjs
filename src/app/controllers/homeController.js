@@ -1,6 +1,6 @@
-import app from "../app";
+import app from "../config/routerConfig";
 
-app.controller("appController", [
+app.controller("homeController", [
   "$scope",
   function($scope) {
     $scope.title = "Hello Angular";
