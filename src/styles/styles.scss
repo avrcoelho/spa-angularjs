@@ -1,0 +1,30 @@
+.btn-circle {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+}
+
+.custom-width {
+  max-width: 500px;
+
+  .container-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.form-group-custom {
+  max-width: 250px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

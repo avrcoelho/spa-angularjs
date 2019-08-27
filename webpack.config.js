@@ -1,29 +1,44 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin"); //installed via npm
-const webpack = require("webpack"); //to access built-in plugins
-const path = require("path");
-const CopyPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
+const webpack = require('webpack'); //to access built-in plugins
+const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: "./src/app/index.js",
+  entry: './src/index.js',
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist")
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
       {
         test: /\.(html)$/,
         use: {
-          loader: "html-loader",
+          loader: 'html-loader',
           options: {
-            attrs: [":data-src"]
-          }
-        }
-      }
-    ]
+            attrs: [':data-src'],
+          },
+        },
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          'style-loader',
+          // Translates CSS into CommonJS
+          'css-loader',
+          // Compiles Sass to CSS
+          'sass-loader',
+        ],
+      },
+    ],
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: "./src/index.html" })
+    new HtmlWebpackPlugin({ template: './src/index.html' }),
     // new CopyPlugin([
     //   {
     //     from: path.resolve(__dirname, "src", "app", "views"),
@@ -31,5 +46,5 @@ module.exports = {
     //   },
     //   { from: "other", to: "public" }
     // ])
-  ]
+  ],
 };
