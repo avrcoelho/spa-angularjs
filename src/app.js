@@ -1,6 +1,7 @@
 import angular from "angular";
-import "angular-route";
+import ngRoute from "angular-route";
+import uiMask from "angular-ui-mask";
 
-const app = angular.module("mainApp", ["ngRoute"]);
+const app = angular.module("mainApp", [ngRoute, uiMask]);
 
 export default app;
