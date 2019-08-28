@@ -4,7 +4,7 @@ app.controller('Register', [
   '$scope',
   '$rootScope',
   function($scope, $rootScope) {
-    $rootScope.title = 'Clientes | Cadastro';
+    $rootScope.title = $rootScope.language.browserTitle.register;
 
     $scope.toastInfo = function(message) {
       var x = document.getElementById('toast-info');

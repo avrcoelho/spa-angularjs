@@ -5,7 +5,9 @@ app.controller('Details', [
   '$scope',
   '$rootScope',
   function($scope, $rootScope) {
-    $rootScope.title = 'Clientes | Detalhes';
+    $rootScope.title = $rootScope.language.browserTitle.details;
+
+    $scope.isLoadingDelete = false;
 
     $scope.toastInfo = function(message) {
       var x = document.getElementById('toast-info');
@@ -38,6 +40,9 @@ app.controller('Details', [
           },
         },
         callback: function(result) {
+          $scope.isLoadingDelete = true;
+          $scope.$apply();
+
           result && $scope.toastInfo('Excluído com sucesso!');
         },
       });

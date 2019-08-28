@@ -5,7 +5,7 @@ app.controller('Customers', [
   '$rootScope',
   '$location',
   function($scope, $rootScope, $location) {
-    $rootScope.title = 'Clientes | Início';
+    $rootScope.title = $rootScope.language.browserTitle.customers;
 
     $scope.handleDetailsCustomer = function() {
       $location.path('/details');
