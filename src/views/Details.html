@@ -48,12 +48,12 @@
         required="true"
       />
       <small ng-show="formUpdate.firstName.$error.pattern" class="text-danger">
-        Nome inválido
+        {{ language.messageInvalidField.firstName }}
       </small>
       <small
         ng-show="formUpdate.firstName.$error.required && !formUpdate.firstName.$pristine"
         class="text-danger"
-        >Digite o nome</small
+        >{{ language.messageEmptyField.firstName }}</small
       >
     </div>
     <div class="form-group">
@@ -71,13 +71,13 @@
         required="true"
       />
       <small ng-show="formUpdate.lastname.$error.pattern" class="text-danger">
-        Sobrenome inválido
+        {{ language.messageInvalidField.lastName }}
       </small>
       <small
         ng-show="formUpdate.lastname.$error.required && !formUpdate.lastname.$pristine"
         class="text-danger"
       >
-        Digite o sobrnome
+        {{ language.messageEmptyField.lastName }}
       </small>
     </div>
     <div class="form-group form-group-custom">
@@ -94,13 +94,13 @@
         required="true"
       />
       <small ng-show="formUpdate.cpf.$error.mask" class="text-danger">
-        CPF inválido
+        {{ language.messageInvalidField.cpf }}
       </small>
       <small
         ng-show="formUpdate.cpf.$error.required && !formUpdate.cpf.$pristine"
         class="text-danger"
       >
-        Digite o CPF
+        {{ language.messageEmptyField.cpf }}
       </small>
     </div>
     <div class="form-group form-group-custom">
@@ -117,13 +117,13 @@
         required="true"
       />
       <small ng-show="formUpdate.birth.$error.mask" class="text-danger">
-        Data inválida
+        {{ language.messageInvalidField.birth }}
       </small>
       <small
         ng-show="formUpdate.birth.$error.required && !formUpdate.birth.$pristine"
         class="text-danger"
       >
-        Digite a data de nascimento
+        {{ language.messageEmptyField.birth }}
       </small>
     </div>
     <div class="form-group">
@@ -136,19 +136,16 @@
         name="profission"
         ng-model="profission"
         ng-disabled="!updateMode"
+        ng-class="{ 'has-error-input' : formUpdate.profission.$invalid && !formUpdate.profission.$pristine}"
+        ng-options="profission.value as profission.text for profission in language.profissions"
         required="true"
       >
-        <option value="">Selecione</option>
-        <option value="1">Programador</option>
-        <option value="2">Analista</option>
-        <option value="3">Gerente</option>
-        <option value="4">Estagiário</option>
-        <option value="5">QA</option>
+        <option value="">{{ language.profissionsSelect }}</option>
       </select>
       <small
         ng-show="formUpdate.profission.$error.required && !formUpdate.profission.$pristine"
         class="text-danger"
-        >Selecione uma profissão</small
+        >{{ language.messageEmptyField.profission }}</small
       >
     </div>
     <button

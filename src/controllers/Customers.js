@@ -1,14 +1,14 @@
-import app from '../config/routerConfig';
+import app from "../config/routerConfig";
 
-app.controller('Customers', [
-  '$scope',
-  '$rootScope',
-  '$location',
+app.controller("Customers", [
+  "$scope",
+  "$rootScope",
+  "$location",
   function($scope, $rootScope, $location) {
     $rootScope.title = $rootScope.language.browserTitle.customers;
 
     $scope.handleDetailsCustomer = function() {
-      $location.path('/details');
+      $location.path("/details");
     };
-  },
+  }
 ]);
