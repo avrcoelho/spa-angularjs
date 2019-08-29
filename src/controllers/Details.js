@@ -1,10 +1,6 @@
-import app from "../config/routerConfig";
 import bootbox from "bootbox";
 
-app.controller("Details", [
-  "$scope",
-  "$rootScope",
-  function($scope, $rootScope) {
+export default function Details($scope, $rootScope) {
     $rootScope.title = $rootScope.language.browserTitle.details;
 
     $scope.isLoadingDelete = false;
@@ -48,4 +44,3 @@ app.controller("Details", [
       });
     };
   }
-]);

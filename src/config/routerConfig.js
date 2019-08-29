@@ -1,20 +1,19 @@
-import app from '../app';
+import Customers from '../views/Customers.html';
+import Details from '../views/Details.html';
+import Register from '../views/Register.html';
 
-app.config([
-  '$routeProvider',
-  '$locationProvider',
-  function($routeProvider, $locationProvider) {
+export default function routes($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        template: require('../views/Customers.html'),
+        template: Customers,
         controller: 'Customers',
       })
       .when('/register', {
-        template: require('../views/Register.html'),
+        template: Details,
         controller: 'Register',
       })
       .when('/details', {
-        template: require('../views/Details.html'),
+        template: Register,
         controller: 'Details',
       })
       .otherwise({
@@ -23,7 +22,4 @@ app.config([
 
     $locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('');
-  },
-]);
-
-export default app;
+  };

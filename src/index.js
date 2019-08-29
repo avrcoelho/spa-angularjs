@@ -9,7 +9,4 @@ import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
 import '@fortawesome/fontawesome-free/js/brands';
 
-// controllers
-import './controllers/Customers';
-import './controllers/Register';
-import './controllers/Details';
+import './app'

@@ -1,9 +1,5 @@
-import app from '../config/routerConfig';
 
-app.controller('Register', [
-  '$scope',
-  '$rootScope',
-  function($scope, $rootScope) {
+ export default function Register($scope, $rootScope) {
     $rootScope.title = $rootScope.language.browserTitle.register;
 
     $scope.toastInfo = function(message) {
@@ -22,5 +18,4 @@ app.controller('Register', [
         $scope.isLoading = true;
       }
     };
-  },
-]);
+  };
