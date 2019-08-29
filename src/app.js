@@ -16,13 +16,13 @@ import CustomerService from './services/Customers'
 
 const app = angular
   .module('mainApp', [ngRoute, uiMask])
+  .run(function($rootScope) {
+    $rootScope.language = language();
+  });
   .service('CustomerService', CustomerService)
   .controller('Customers', CustomersCtrl)
   .controller('Details', DeatilsCtrl)
   .controller('Register', RegisterCtrl)
   .config(routes)
-  .run(function($rootScope) {
-    $rootScope.language = language();
-  });
 
 export default app;
