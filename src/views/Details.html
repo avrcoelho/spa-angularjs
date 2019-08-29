@@ -126,6 +126,18 @@
         {{ language.messageEmptyField.birth }}
       </small>
     </div>
+    <div class="form-group form-group-custom">
+      <label for="birth">{{ language.dataCustomerTitle.age }}</label>
+      <input
+        type="text"
+        class="form-control"
+        id="age"
+        name="age"
+        ng-model="birth"
+        disabled="disabled"
+        required="true"
+      />
+    </div>
     <div class="form-group">
       <label for="profission">{{
         language.dataCustomerTitle.profission
@@ -136,17 +148,10 @@
         name="profission"
         ng-model="profission"
         ng-disabled="!updateMode"
-        ng-class="{ 'has-error-input' : formUpdate.profission.$invalid && !formUpdate.profission.$pristine}"
         ng-options="profission.value as profission.text for profission in language.profissions"
-        required="true"
       >
         <option value="">{{ language.profissionsSelect }}</option>
       </select>
-      <small
-        ng-show="formUpdate.profission.$error.required && !formUpdate.profission.$pristine"
-        class="text-danger"
-        >{{ language.messageEmptyField.profission }}</small
-      >
     </div>
     <button
       type="submit"

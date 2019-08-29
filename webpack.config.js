@@ -37,14 +37,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({ template: './src/index.html' }),
-    // new CopyPlugin([
-    //   {
-    //     from: path.resolve(__dirname, "src", "app", "views"),
-    //     to: path.resolve(__dirname, "dist", "views")
-    //   },
-    //   { from: "other", to: "public" }
-    // ])
-  ],
+  plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
 };
