@@ -1,8 +1,8 @@
-<div class="container custom-width">
+<div class="container custom-width mb-3">
   <h2 class="mt-3 mb-3 text-secondary">{{ language.pageTitle.register }}</h2>
   <form
     name="formRegister"
-    ng-submit="registerCustomer($event, formRegister.$invalid)"
+    ng-submit="registerCustomer($event, formRegister.$valid)"
   >
     <div class="form-group">
       <label for="firstName">{{ language.dataCustomerTitle.firstName }}</label>
@@ -30,23 +30,23 @@
       >
     </div>
     <div class="form-group">
-      <label for="lastname">{{ language.dataCustomerTitle.lastName }}</label>
+      <label for="lastName">{{ language.dataCustomerTitle.lastName }}</label>
       <input
         type="text"
         class="form-control"
-        name="lastname"
-        id="lastname"
+        name="lastName"
+        id="lastName"
         ng-pattern="/^[a-zA-Z]([A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ`0-9]+)/"
-        ng-model="lastname"
-        ng-class="{ 'has-error-input' : formRegister.lastname.$invalid && !formRegister.lastname.$pristine}"
+        ng-model="lastName"
+        ng-class="{ 'has-error-input' : formRegister.lastName.$invalid && !formRegister.lastName.$pristine}"
         maxlength="100"
         required="true"
       />
-      <small ng-show="formRegister.lastname.$error.pattern" class="text-danger">
+      <small ng-show="formRegister.lastName.$error.pattern" class="text-danger">
         {{ language.messageInvalidField.lastName }}
       </small>
       <small
-        ng-show="formRegister.lastname.$error.required && !formRegister.lastname.$pristine"
+        ng-show="formRegister.lastName.$error.required && !formRegister.lastName.$pristine"
         class="text-danger"
       >
         {{ language.messageEmptyField.lastName }}
@@ -105,28 +105,21 @@
         id="profission"
         name="profission"
         ng-model="profission"
-        ng-class="{ 'has-error-input' : formRegister.profission.$invalid && !formRegister.profission.$pristine}"
         ng-options="profission.value as profission.text for profission in language.profissions"
-        required="true"
       >
         <option value="">{{ language.profissionsSelect }}</option>
       </select>
-      <small
-        ng-show="formRegister.profission.$error.required && !formRegister.profission.$pristine"
-        class="text-danger"
-        >{{ language.messageEmptyField.profission }}</small
-      >
     </div>
     <button
       type="submit"
       class="btn btn-info btn-lg btn-block"
       ng-disabled="formRegister.$invalid"
     >
-      <span ng-if="!isLoading">{{ language.btn.register }}</span>
+      <span ng-show="!isLoading">{{ language.btn.register }}</span>
       <i
         class="fa fa-spinner fa-pulse"
         style="font-size:1.2em"
-        ng-if="isLoading"
+        ng-show="isLoading"
       ></i>
     </button>
   </form>

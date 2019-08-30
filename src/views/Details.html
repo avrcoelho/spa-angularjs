@@ -1,4 +1,4 @@
-<div class="container custom-width">
+<div class="container custom-width mb-3">
   <div class="container-title">
     <h2 class="mt-3 mb-3 text-secondary">{{ language.pageTitle.details }}</h2>
     <div class="btn-group dropleft mr-2 pull-right">
@@ -29,10 +29,7 @@
       </div>
     </div>
   </div>
-  <form
-    name="formUpdate"
-    ng-submit="updateCustomer($event, formUpdate.$invalid)"
-  >
+  <form name="formUpdate" ng-submit="updateCustomer($event, formUpdate.$valid)">
     <div class="form-group">
       <label for="firstName">{{ language.dataCustomerTitle.firstName }}</label>
       <input
@@ -57,24 +54,24 @@
       >
     </div>
     <div class="form-group">
-      <label for="lastname">{{ language.dataCustomerTitle.lastName }}</label>
+      <label for="lastName">{{ language.dataCustomerTitle.lastName }}</label>
       <input
         type="text"
         class="form-control"
-        name="lastname"
-        id="lastname"
+        name="lastName"
+        id="lastName"
         ng-pattern="/^[a-zA-Z]([A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ`0-9]+)/"
-        ng-model="lastname"
-        ng-class="{ 'has-error-input' : formUpdate.lastname.$invalid && !formUpdate.lastname.$pristine}"
+        ng-model="lastName"
+        ng-class="{ 'has-error-input' : formUpdate.lastName.$invalid && !formUpdate.lastName.$pristine}"
         ng-disabled="!updateMode"
         maxlength="100"
         required="true"
       />
-      <small ng-show="formUpdate.lastname.$error.pattern" class="text-danger">
+      <small ng-show="formUpdate.lastName.$error.pattern" class="text-danger">
         {{ language.messageInvalidField.lastName }}
       </small>
       <small
-        ng-show="formUpdate.lastname.$error.required && !formUpdate.lastname.$pristine"
+        ng-show="formUpdate.lastName.$error.required && !formUpdate.lastName.$pristine"
         class="text-danger"
       >
         {{ language.messageEmptyField.lastName }}
@@ -89,19 +86,9 @@
         name="cpf"
         ng-model="cpf"
         ui-mask="999.999.999-99"
-        ng-class="{ 'has-error-input' : formUpdate.cpf.$invalid && !formUpdate.cpf.$pristine}"
-        ng-disabled="!updateMode"
+        disabled="disabled"
         required="true"
       />
-      <small ng-show="formUpdate.cpf.$error.mask" class="text-danger">
-        {{ language.messageInvalidField.cpf }}
-      </small>
-      <small
-        ng-show="formUpdate.cpf.$error.required && !formUpdate.cpf.$pristine"
-        class="text-danger"
-      >
-        {{ language.messageEmptyField.cpf }}
-      </small>
     </div>
     <div class="form-group form-group-custom">
       <label for="birth">{{ language.dataCustomerTitle.birth }}</label>
@@ -111,6 +98,7 @@
         id="birth"
         name="birth"
         ng-model="birth"
+        ng-blur="calcAge(birth)"
         ui-mask="99/99/9999"
         ng-class="{ 'has-error-input' : formUpdate.birth.$invalid && !formUpdate.birth.$pristine}"
         ng-disabled="!updateMode"
@@ -127,13 +115,13 @@
       </small>
     </div>
     <div class="form-group form-group-custom">
-      <label for="birth">{{ language.dataCustomerTitle.age }}</label>
+      <label for="age">{{ language.dataCustomerTitle.age }}</label>
       <input
         type="text"
         class="form-control"
         id="age"
         name="age"
-        ng-model="birth"
+        ng-model="age"
         disabled="disabled"
         required="true"
       />
@@ -159,16 +147,16 @@
       ng-disabled="formUpdate.$invalid"
       ng-show="updateMode"
     >
-      <span ng-if="!isLoading">{{ language.btn.edit }}</span>
+      <span ng-show="!isLoading">{{ language.btn.edit }}</span>
       <i
         class="fa fa-spinner fa-pulse"
         style="font-size:1.2em"
-        ng-if="isLoading"
+        ng-show="isLoading"
       ></i>
     </button>
   </form>
 </div>
 <div id="toast-info"></div>
-<div class="load-delete" ng-if="isLoadingDelete">
+<div class="load-delete" ng-show="isLoadingDelete">
   <i class="fa fa-spinner fa-pulse fa-3x text-white"></i>
 </div>

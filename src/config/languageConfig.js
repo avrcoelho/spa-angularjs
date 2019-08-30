@@ -64,6 +64,21 @@ const language = () => {
         text: 'QA',
       },
     ],
+    toastMessages: {
+      failure: {
+        getCustomers: 'Erro ao obter clientes',
+        getDataCustomer: 'Erro ao obter dados',
+        deleteCustomer: 'Erro ao excluir cliente',
+        customerExist: 'Cliente já existente',
+        registerCustomer: 'Erro ao cadastrar cliente',
+        updateCustomer: 'Erro ao atualizar cliente',
+      },
+      success: {
+        registerCustomer: 'Cliente cadastrado',
+        updateCustomer: 'Cliente atualizado',
+      },
+    },
+    emptyCustomers: 'Nenhum cliente cadastrado',
   };
 
   const languageEn = {
@@ -129,6 +144,21 @@ const language = () => {
         text: 'QA',
       },
     ],
+    toastMessages: {
+      failure: {
+        getCustomers: 'Error getting customers',
+        getDataCustomer: 'Error getting data',
+        deleteCustomer: 'Error deleting customer',
+        customerExist: 'Customer already exists',
+        registerCustomer: 'Error register customer',
+        updateCustomer: 'Error update customer',
+      },
+      success: {
+        registerCustomer: 'Registered Customer',
+        updateCustomer: 'updated customer',
+      },
+    },
+    emptyCustomers: 'No registered customers',
   };
 
   if (language === 'pt-BR') {

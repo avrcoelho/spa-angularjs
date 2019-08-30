@@ -3,23 +3,23 @@ import Details from '../views/Details.html';
 import Register from '../views/Register.html';
 
 export default function routes($routeProvider, $locationProvider) {
-    $routeProvider
-      .when('/', {
-        template: Customers,
-        controller: 'Customers',
-      })
-      .when('/register', {
-        template: Details,
-        controller: 'Register',
-      })
-      .when('/details', {
-        template: Register,
-        controller: 'Details',
-      })
-      .otherwise({
-        redirectTo: '/',
-      });
+  $routeProvider
+    .when('/', {
+      template: Customers,
+      controller: 'Customers',
+    })
+    .when('/register', {
+      template: Register,
+      controller: 'Register',
+    })
+    .when('/details/:id', {
+      template: Details,
+      controller: 'Details',
+    })
+    .otherwise({
+      redirectTo: '/',
+    });
 
-    $locationProvider.html5Mode(true);
-    $locationProvider.hashPrefix('');
-  };
+  $locationProvider.html5Mode(true);
+  $locationProvider.hashPrefix('');
+}
