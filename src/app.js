@@ -14,15 +14,39 @@ import RegisterCtrl from './controllers/Register';
 // services
 import CustomerFactory from './factories/Customers';
 
+import './styles/styles.scss';
+
 const app = angular
   .module('mainApp', [ngRoute, uiMask])
-  .run(function($rootScope) {
-    $rootScope.language = language();
-  })
-  .factory('CustomerService', CustomerFactory)
-  .controller('Customers', CustomersCtrl)
-  .controller('Details', DeatilsCtrl)
-  .controller('Register', RegisterCtrl)
-  .config(routes);
+  .run([
+    '$rootScope',
+    function($rootScope) {
+      $rootScope.language = language();
+    },
+  ])
+  .factory('CustomerService', ['$http', CustomerFactory])
+  .controller('Customers', [
+    '$scope',
+    '$rootScope',
+    '$location',
+    'CustomerService',
+    CustomersCtrl,
+  ])
+  .controller('Details', [
+    '$scope',
+    '$rootScope',
+    '$routeParams',
+    '$filter',
+    '$location',
+    'CustomerService',
+    DeatilsCtrl,
+  ])
+  .controller('Register', [
+    '$scope',
+    '$rootScope',
+    'CustomerService',
+    RegisterCtrl,
+  ])
+  .config(['$routeProvider', '$locationProvider', routes]);
 
 export default app;

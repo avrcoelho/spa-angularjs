@@ -1,12 +1,16 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
 const webpack = require('webpack'); //to access built-in plugins
 const path = require('path');
-const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    styles: path.resolve(__dirname, 'src/styles/styles.scss'),
+    libs: path.resolve(__dirname, 'src/assets/libs.js'),
+    fonts: path.resolve(__dirname, 'src/assets/fonts.js'),
+    bundle: path.resolve(__dirname, 'src/app.js'),
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
   module: {
