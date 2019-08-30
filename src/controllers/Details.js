@@ -1,3 +1,4 @@
+import 'bootstrap';
 import bootbox from 'bootbox';
 
 export default function Details(
